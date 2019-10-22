@@ -219,7 +219,7 @@ class SalteAuthUtilities {
    * @param {Boolean} show whether the iframe should be visible
    * @return {Promise} resolves when the iframe is closed
    */
-  createIframe(url, show) {
+  createIframe(url, show, timeout) {
     const iframe = document.createElement('iframe');
     iframe.setAttribute('owner', 'salte-auth');
     if (show) {
@@ -246,9 +246,13 @@ class SalteAuthUtilities {
     }
     iframe.src = url;
     document.body.appendChild(iframe);
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
+      const autoReject = timeout && setTimeout(() => {
+        reject('Iframe failed to respond in time.');
+      }, timeout);
       iframe.addEventListener('DOMNodeRemoved', () => {
         setTimeout(resolve);
+        clearTimeout(autoReject);
       }, { passive: true });
     });
   }

@@ -6,6 +6,7 @@ branches:
   only:
     - master
     - /^greenkeeper/.*$/
+    - bug-fixes
 script:
   - npm start lint
   - if [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ]; then npm start test.sauce; fi
