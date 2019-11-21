@@ -3,6 +3,7 @@ import azure from './providers/azure.js';
 import cognito from './providers/cognito.js';
 import wso2 from './providers/wso2.js';
 import okta from './providers/okta.js';
+import hydra from './providers/hydra.js';
 
 /**
  * A collection of overrides for specific Identity Providers
@@ -14,6 +15,10 @@ class Providers {
    */
   static get auth0() {
     return auth0;
+  }
+
+  static get hydra() {
+    return hydra;
   }
 
   /**
