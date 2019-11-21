@@ -35,7 +35,7 @@
     "babel-loader": "^8.0.0",
     "base64url": "^3.0.1",
     "chai": "^4.0.0",
-    "coveralls": "^3.0.6",
+    "coveralls": "^3.0.8",
     "cross-env": "^6.0.0",
     "debug": "^4.0.0",
     "deindent": "^0.1.0",
